@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_todo_list/data/services/database.dart';
 import 'package:mvvm_todo_list/todo_list_widget.dart';
 
-void main() {
+void main() async {
+  // Чтобы у нас появился "инстанс" базы
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await DB.instance.init();
+
   runApp(const MyApp());
 }
 

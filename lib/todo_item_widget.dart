@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_todo_list/todo_item.dart';
+import 'package:mvvm_todo_list/domain/models/todo_item.dart';
 
 class ToDoItemWidget extends StatelessWidget {
   final ToDoItem item;
   final Function(ToDoItem) onDelete;
-  final Function(ToDoItem) onToogle;
+  final Function(ToDoItem) onToggle;
   const ToDoItemWidget({
     Key? key,
     required this.item,
     required this.onDelete,
-    required this.onToogle,
+    required this.onToggle,
   }) : super(key: key);
 
   @override
@@ -21,9 +21,9 @@ class ToDoItemWidget extends StatelessWidget {
           onDelete(item);
         },
         child: CheckboxListTile(
-          value: item.done,
+          value: item.isDone,
           onChanged: (_) {
-            onToogle(item);
+            onToggle(item);
           },
           title: Text(item.name),
         ));

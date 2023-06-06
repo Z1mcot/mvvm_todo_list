@@ -44,3 +44,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+.fvm/flutter_sdk
+
+# Auto-generated files. Check out README for further instructions
+*.g.dart

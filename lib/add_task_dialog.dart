@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'todo_item.dart';
+import 'package:mvvm_todo_list/domain/models/create_todo_item_model.dart';
 
 class AddTaskDialog extends StatelessWidget {
-  final ValueChanged<ToDoItem> onFinish;
+  final ValueChanged<CreateTodoItemModel> onFinish;
   const AddTaskDialog({
     Key? key,
     required this.onFinish,
@@ -16,8 +15,8 @@ class AddTaskDialog extends StatelessWidget {
       title: const Text("Add new Task"),
       content: TextField(
           autofocus: true,
-          onChanged: (String _text) {
-            text = _text;
+          onChanged: (String userInput) {
+            text = userInput;
           }),
       actions: <Widget>[
         TextButton(
@@ -25,7 +24,7 @@ class AddTaskDialog extends StatelessWidget {
           onPressed: () {
             if (text != null) {
               try {
-                onFinish(ToDoItem(name: text!));
+                onFinish(CreateTodoItemModel(name: text!));
                 Navigator.of(context).pop();
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(

@@ -1,8 +1,11 @@
 # mvvm_todo_list
 
-Проект для демонстрации реализации паттерна MVVM на Flutter
+Проект для демонстрации работы с локальной (мобильной) БД
+
+[Пример бэка](https://github.com/Z1mcot/TODOList.Backend)
+
 
 ## приложение к статье
 
-https://habr.com/ru/company/digdes/blog/660411/
+Вставить ссылку
 
