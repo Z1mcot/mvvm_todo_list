@@ -35,13 +35,6 @@ class DataService {
       take: take,
     );
 
-    // TODO странная логика, под чем я был когда это писал?
-    return items
-        .map((e) => ToDoItem(
-              id: e.id,
-              name: e.name,
-              isDone: e.isDone,
-            ))
-        .toList();
+    return items.toList();
   }
 }
