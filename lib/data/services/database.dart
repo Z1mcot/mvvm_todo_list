@@ -151,4 +151,11 @@ class DB {
 
     await batch.commit(noResult: true);
   }
+
+  Future<int?> getLastId<T extends DbModel>() async {
+    var lastEntry = await _db
+        .query(_dbName(T), columns: ['id'], orderBy: 'id DESC', limit: 1)
+        .then((value) => value.firstOrNull);
+    return lastEntry == null ? null : lastEntry['id'] as int;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:mvvm_todo_list/data/services/database.dart';
 import 'package:mvvm_todo_list/domain/db_model.dart';
+import 'package:mvvm_todo_list/domain/models/create_todo_item_model.dart';
 import 'package:mvvm_todo_list/domain/models/todo_item.dart';
 
 class DataService {
@@ -36,5 +37,11 @@ class DataService {
     );
 
     return items.toList();
+  }
+
+  createToDoItem(CreateTodoItemModel model) async {
+    var lastId = await DB.instance.getLastId<ToDoItem>() ?? 0;
+    var modelForInsert = ToDoItem(id: lastId + 1, name: model.name);
+    await createUpdateToDoItem(modelForInsert);
   }
 }
